@@ -1,0 +1,108 @@
+.hero {
+  padding: 24px 0;
+}
+
+.banner {
+  background: linear-gradient(135deg, #22B538 0%, #157E24 100%);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  height: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.4);
+  color: white;
+  border-radius: 50%;
+  border: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: background 0.2s;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.nav-btn.prev {
+  left: 20px;
+}
+
+.nav-btn.next {
+  right: 20px;
+}
+
+.dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.dots .dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dots .dot.active {
+  background: white;
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.quick-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: var(--secondary);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--text-main);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.quick-link:hover {
+  background: #EAEAEA;
+  transform: translateY(-2px);
+}
+
+.quick-link.highlight {
+  background: #FFEFF6;
+  color: #EB1B2E;
+}
+
+.quick-link.highlight .emoji {
+  filter: drop-shadow(0 0 4px rgba(235, 27, 46, 0.3));
+}
