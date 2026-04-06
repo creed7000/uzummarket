@@ -64,6 +64,12 @@
   gap: 20px;
 }
 
+.header-main-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -71,6 +77,7 @@
   font-size: 24px;
   font-weight: 700;
   letter-spacing: -0.5px;
+  flex-shrink: 0;
 }
 
 .logo-uzum {
@@ -95,10 +102,28 @@
   font-weight: 500;
   font-size: 15px;
   transition: background 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
 .catalog-btn:hover {
   background: #E0E0F5;
+}
+
+.catalog-icon {
+  width: 16px;
+  height: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.catalog-icon span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
 }
 
 .search-bar {
@@ -110,17 +135,19 @@
 
 .search-bar input {
   width: 100%;
-  padding: 12px 16px;
+  padding: 10px 16px;
   padding-right: 50px;
   border: 1px solid var(--border-color);
   border-radius: var(--radius-sm);
-  font-size: 15px;
+  font-size: 14px;
   outline: none;
   font-family: inherit;
+  background: var(--secondary);
 }
 
 .search-bar input:focus {
   border-color: var(--primary);
+  background: #fff;
 }
 
 .search-btn {
@@ -128,18 +155,13 @@
   right: 0;
   height: 100%;
   padding: 0 16px;
-  background: var(--secondary);
-  border: 1px solid var(--secondary);
-  border-top-right-radius: var(--radius-sm);
-  border-bottom-right-radius: var(--radius-sm);
+  background: transparent;
+  border: none;
   color: var(--text-gray);
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.search-btn:hover {
-  background: #E6E8EA;
+  cursor: pointer;
 }
 
 .user-actions {
@@ -149,19 +171,76 @@
 
 .action-btn {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
   color: var(--text-main);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.action-btn span {
+  font-size: 11px;
 }
 
 .action-btn:hover {
   color: var(--primary);
 }
 
+.mobile-catalog-btn {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .header-main-inner {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-main {
+    padding: 10px 0;
+  }
+
+  .header-main-inner {
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .search-bar {
+    order: 3;
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  .header-main-inner {
+    flex-wrap: wrap;
+  }
+
+  .header-nav {
+    display: none; /* Hide categories on small mobile, move to catalog */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-market {
+    display: none; /* Only show 'uzum' on very small screens */
+  }
+}
+
 .header-nav {
   padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .category-list {
@@ -172,10 +251,15 @@
   font-weight: 500;
   overflow-x: auto;
   white-space: nowrap;
+  scrollbar-width: none; /* Firefox */
 }
 
 .category-list::-webkit-scrollbar {
   display: none;
+}
+
+.category-list a {
+  font-size: 14px;
 }
 
 .category-list a:hover {
@@ -192,6 +276,9 @@
   gap: 4px;
   color: var(--text-gray);
   font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .more-btn:hover {
